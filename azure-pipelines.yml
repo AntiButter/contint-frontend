@@ -12,6 +12,13 @@ variables:
   tag: '$(Build.BuildId)'
 
 stages:
+- stage: LINT
+  displayName: Linting index
+  jobs:
+    - job: Lint
+      displayName: Lint
+      
+
 - stage: Build
   displayName: Build image
   jobs:
@@ -27,3 +34,4 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/dockerfile'
         tags: |
           $(tag)
+
