@@ -21,23 +21,22 @@ stages:
       vmImage: ubuntu-latest
     steps:
     - task: Docker@2
-      displayName: Build an image
       inputs:
-        command: build
         containerRegistry: 'Dockerhub'
-        dockerfile: '$(Build.SourcesDirectory)/dockerfile'
-        tags: |
-          $(tag)
+        repository: 'antibutter/frontend'
+        command: 'build'
+        Dockerfile: '**/Dockerfile'
 - stage: Push
   displayName: Push to Dockerhub
   jobs:
     - job: Push
       displayName: pushing
       steps:
-        - task: Docker@2
-          inputs:
-            containerRegistry: 'Dockerhub'
-            repository: 'frontend'
-            command: 'push'
+      - task: Docker@2
+        inputs:
+          containerRegistry: 'Dockerhub'
+          repository: 'antibutter/frontend'
+          command: 'push'
+        
             
 
