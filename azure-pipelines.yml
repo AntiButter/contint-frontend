@@ -13,6 +13,8 @@ variables:
   imageName: 'antibutter/frontend:$(Build.BuildId)'
 
 stages:
+- stage: Lint
+  displayName: 
 - stage: Build
   displayName: Build image
   jobs:
