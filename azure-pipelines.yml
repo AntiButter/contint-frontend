@@ -25,7 +25,7 @@ stages:
         containerRegistry: 'Dockerhub'
         repository: 'antibutter/frontend'
         command: 'build'
-        Dockerfile: '**/Dockerfile'
+        Dockerfile: 'dockerfile'
 - stage: Push
   displayName: Push to Dockerhub
   jobs:
