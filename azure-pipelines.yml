@@ -16,8 +16,23 @@ stages:
 - stage: Build
   displayName: Build image
   jobs:
-  - job: Build
-    displayName: Build
+  - job: build
+    displayName: build
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+    - task: Docker@2
+      inputs:
+        containerRegistry: 'Dockerhub'
+        repository: 'antibutter/frontend'
+        command: 'build'
+        Dockerfile: 'dockerfile'
+        buildContext: 
+- stage: Publish
+  displayName: Build image
+  jobs:
+  - job: push
+    displayName: push
     pool:
       vmImage: ubuntu-latest
     steps:
