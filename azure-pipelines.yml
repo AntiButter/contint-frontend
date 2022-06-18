@@ -10,6 +10,7 @@ resources:
 
 variables:
   tag: '$(Build.BuildId)'
+  imageName: 'antibutter/frontend:$(Build.BuildId)'
 
 stages:
 - stage: Build
@@ -24,19 +25,9 @@ stages:
       inputs:
         containerRegistry: 'Dockerhub'
         repository: 'antibutter/frontend'
-        command: 'build'
+        command: 'buildAndPush'
         Dockerfile: 'dockerfile'
-- stage: Push
-  displayName: Push to Dockerhub
-  jobs:
-    - job: Push
-      displayName: pushing
-      steps:
-      - task: Docker@2
-        inputs:
-          containerRegistry: 'Dockerhub'
-          repository: 'antibutter/frontend'
-          command: 'push'
-        
-            
+        buildContext: 
 
+
+      
