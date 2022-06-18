@@ -12,12 +12,6 @@ variables:
   tag: '$(Build.BuildId)'
 
 stages:
-- stage: LINT
-  displayName: Linting index
-  jobs:
-    - job: Lint
-      displayName: Lint
-      uses:
         
       
 
