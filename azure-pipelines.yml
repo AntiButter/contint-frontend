@@ -12,9 +12,6 @@ variables:
   tag: '$(Build.BuildId)'
 
 stages:
-        
-      
-
 - stage: Build
   displayName: Build image
   jobs:
@@ -30,4 +27,16 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/dockerfile'
         tags: |
           $(tag)
+- stage: Push
+  displayName: Push to Dockerhub
+  jobs:
+    - job: Push
+      displayName: pushing
+      steps:
+        
+      - task: Docker@2
+        inputs:
+          containerRegistry: 'Dockerhub'
+          repository: 'frontend'
+          command: 'push'
 
