@@ -1,22 +1,19 @@
 {
-  "name": "contint-frontend",
+  "name": "neuerversuchfrontend",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AntiButter/contint-frontend.git"
-  },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/AntiButter/contint-frontend/issues"
-  },
-  "homepage": "https://github.com/AntiButter/contint-frontend#readme",
   "dependencies": {
     "express": "^4.18.1"
-  }
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.28.0",
+    "@typescript-eslint/parser": "^5.28.0",
+    "eslint": "^8.18.0"
+  },
+  "description": ""
 }
