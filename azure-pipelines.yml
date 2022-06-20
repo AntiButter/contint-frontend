@@ -16,6 +16,8 @@ stages:
 
 - stage: Lint
   displayName: Lint
+  pool:
+    vmimage: "ubuntu-latest"
   jobs:
   - job: Linting
     displayName: Linting
