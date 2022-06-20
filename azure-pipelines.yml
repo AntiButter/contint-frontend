@@ -13,6 +13,18 @@ variables:
   imageName: 'antibutter/frontend:$(Build.BuildId)'
 
 stages:
+- stage: Lint
+  displayName: Lint
+  jobs:
+  - job: Linting
+    displayName: Linting
+    steps:
+    - task: Npm@1
+      inputs:
+        command: 'custom'
+        customCommand: 'run lint'
+    
+
 - stage: Build
   displayName: Build image
   jobs:
