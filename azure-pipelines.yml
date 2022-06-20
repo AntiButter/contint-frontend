@@ -13,8 +13,27 @@ variables:
   imageName: 'antibutter/frontend:$(Build.BuildId)'
 
 stages:
+
 - stage: Lint
-  displayName: 
+  displayName: Lint
+  pool:
+    vmimage: "ubuntu-latest"
+  jobs:
+  - job: Linting
+    displayName: Linting
+    steps:
+    - task: NodeTool@0
+      inputs:
+        versionSpec: "16.15.1"
+      displayName: "Install Nodejs"
+    - script: npm install
+      displayName: npm install
+    - task: Npm@1
+      inputs:
+        command: 'custom'
+        customCommand: 'run lint'
+    
+
 - stage: Build
   displayName: Build image
   jobs:
