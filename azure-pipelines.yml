@@ -13,12 +13,19 @@ variables:
   imageName: 'antibutter/frontend:$(Build.BuildId)'
 
 stages:
+
 - stage: Lint
   displayName: Lint
   jobs:
   - job: Linting
     displayName: Linting
     steps:
+    - task: NodeTool@0
+      inputs:
+        versionSpec: $(nodeVersion)
+      displayName: "Install Nodejs"
+    - script: npm install
+      displayName: npm install
     - task: Npm@1
       inputs:
         command: 'custom'
