@@ -33,7 +33,24 @@ stages:
         command: 'custom'
         customCommand: 'run lint'
     
-
+- stage: Test
+  displayName: Test
+  pool:
+    vmimage: "ubuntu-latest"
+  jobs:
+  - job: testing
+    displayName: testing
+    steps:
+    - task: NodeTool@0
+      inputs:
+        versionSpec: "16.15.1"
+      displayName: "Install Nodejs"
+    - script: npm install
+      displayName: npm install
+    - task: Npm@1
+      inputs:
+        command: 'custom'
+        customCommand: 'run test'
 - stage: Build
   displayName: Build image
   jobs:
