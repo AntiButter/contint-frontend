@@ -1,9 +1,8 @@
-const get = require ('./index');
+//const get = require ('./index');
 const express = require('express'); //Import the express dependency
-const app = express();              //Instantiate an express app, the main work horse of this server
-const port = 5000;      
-
+const app = express();              //Instantiate an express app, the main work horse of this server     
 test('checks if server responds', () => {
-    const app = express();
+
     expect(app.get('./')).not.toBeNull();
+    //expect(app.get('./')).toBeNull();
 })
